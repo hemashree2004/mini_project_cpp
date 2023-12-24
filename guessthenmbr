@@ -1,1 +1,43 @@
+#inlcude<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
 
+int main()
+{
+srand(static_cast<unsigned int>(time(nullptr)));
+int random = rand()%100+1;
+int guess, attempts = 0;
+
+cout<<"Welcome to Guess the number!"<<endl;
+cout<<"Guess a number between 1 and 100."<<endl;
+
+while(attempts<5)
+{
+cout<<"Enter your guess:";
+cin>>guess;
+
+//increment the number to attempts
+attempts++;
+
+//check if the guess is correct
+if(guess==random)
+{
+cout<<"Congratulations!! You guessed the number in"<<attempts<<" attempts."<<endl;
+break;
+}
+else if(guess<random)
+{
+cout<<"Too low. Try again."<<endl;
+}
+else
+{
+cout<<"Too high. Try again."<<endl;
+}
+}
+if(attempts==5)
+{
+cout<<"Sorry you've ran out of attempts.The correct number was "<<random<<"."<<endl;
+}
+return 0;
+}
